@@ -33,7 +33,4 @@ public class ResultFromInputs {
 		this.resultForHomeCity = resultForHomeCity;
 	}
 	
-	
-	
-
 }
