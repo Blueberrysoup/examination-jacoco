@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="sv"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Game.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">examination-jacoco</a> &gt; <a href="index.source.html" class="el_package">se.nackademin.examination.examination_jacoco</a> &gt; <span class="el_source">Game.java</span></div><h1>Game.java</h1><pre class="source lang-java linenums">package se.nackademin.examination.examination_jacoco;
+
+import java.util.ArrayList;
+//import java.util.Scanner;
+
+<span class="fc" id="L6">public class Game {</span>
+
+<span class="fc" id="L8">	private ResultFromInputs resultFromInputs = new ResultFromInputs();</span>
+	
+	
+	public void run(ArrayList&lt;String&gt; values){
+<span class="fc" id="L12">		DataAnalysis dataAnalysis = new DataAnalysis();</span>
+<span class="fc" id="L13">		getGenderFromInputValues(values);</span>
+<span class="fc" id="L14">		getAgeFromInputValues(values);		</span>
+<span class="fc" id="L15">		System.out.println(dataAnalysis.buildFinalString(values));</span>
+<span class="fc" id="L16">		runGame(values.get(0),values.get(1),values.get(2),getGenderFromInputValues(values),getAgeFromInputValues(values),values.get(5));</span>
+<span class="fc" id="L17">	}</span>
+	
+	
+	/*
+	public ArrayList&lt;String&gt; collectInputData(){
+		ArrayList&lt;String&gt; resultArray = new ArrayList&lt;String&gt;();
+		Scanner scanner = new Scanner(System.in);
+		String inputValue = &quot;&quot;;
+		System.out.println(&quot;Enter the name of the Game (String):&quot;);
+		inputValue = scanner.nextLine();
+		resultArray.add(inputValue);
+		System.out.println(&quot;Enter your first name (String):&quot;);
+		inputValue = scanner.nextLine();
+		resultArray.add(inputValue);
+		System.out.println(&quot;Enter your last name (String)&quot;);
+		inputValue = scanner.nextLine();
+		resultArray.add(inputValue);
+		System.out.println(&quot;Enter your gender(Char):&quot;);
+		inputValue = scanner.nextLine();
+		resultArray.add(inputValue);
+		System.out.println(&quot;Enter your age (int):&quot;);
+		inputValue = scanner.nextLine();
+		resultArray.add(inputValue);
+		System.out.println(&quot;Enter your homecity (String):&quot;);
+		inputValue = scanner.nextLine();
+		resultArray.add(inputValue);
+		
+		scanner.close();
+		return resultArray;
+	}*/
+	
+	public char getGenderFromInputValues(ArrayList&lt;String&gt; arrayOfInputs){
+<span class="fc" id="L49">		char genderCharacter = arrayOfInputs.get(3).charAt(0);	</span>
+<span class="fc" id="L50">		return genderCharacter;		</span>
+	}	
+	
+	public int getAgeFromInputValues(ArrayList&lt;String&gt; arrayOfInputs){
+<span class="fc" id="L54">		int ageValue = Integer.parseInt(arrayOfInputs.get(4));	</span>
+<span class="fc" id="L55">		return ageValue;</span>
+	}
+	
+
+	public void runGame(String gameName, String firstName, String lastName, char gender, int age, String homeCity) {
+<span class="fc" id="L60">		System.out.println(&quot;#####################-- &quot;+gameName+&quot; --#####################&quot;);</span>
+<span class="fc" id="L61">		int valueName = calculateOutPutBasedOnNames(firstName, lastName);</span>
+<span class="fc" id="L62">		int valueGender = calculateOutPutBasedOnGender(gender);</span>
+<span class="fc" id="L63">		int valueAge = calculateOutPutBasedOnAge(age);</span>
+<span class="fc" id="L64">		int valueHomecity = calculateOutPutBasedOnHomeCity(homeCity);</span>
+
+<span class="fc" id="L66">		resultFromInputs.setResultForNameLenght(valueName);</span>
+<span class="fc" id="L67">		resultFromInputs.setResultForGender(valueGender);</span>
+<span class="fc" id="L68">		resultFromInputs.setResultForAge(valueAge);</span>
+<span class="fc" id="L69">		resultFromInputs.setResultForHomeCity(valueHomecity);</span>
+<span class="fc" id="L70">		Conversor conversor = new Conversor();</span>
+<span class="fc" id="L71">		buildFinalString(firstName, lastName, this.resultFromInputs, conversor);</span>
+
+<span class="fc" id="L73">	}</span>
+
+	public int calculateOutPutBasedOnNames(String firstName, String lastName) {
+<span class="fc bfc" id="L76" title="All 2 branches covered.">		if (firstName.length() &lt; lastName.length()) {</span>
+<span class="fc" id="L77">			return 0;</span>
+		}
+<span class="fc bfc" id="L79" title="All 2 branches covered.">		if (firstName.length() &gt; lastName.length()) {</span>
+<span class="fc" id="L80">			return 1;</span>
+		} else {
+<span class="fc" id="L82">			return 2;</span>
+		}
+	}
+
+	public int calculateOutPutBasedOnGender(char gender) {
+<span class="fc bfc" id="L87" title="All 2 branches covered.">		if (gender == 'M') {</span>
+<span class="fc" id="L88">			return 0;</span>
+<span class="fc bfc" id="L89" title="All 2 branches covered.">		}if (gender == 'F') {</span>
+<span class="fc" id="L90">			return 1;</span>
+		}
+<span class="fc" id="L92">		return 2;</span>
+	}
+
+	public int calculateOutPutBasedOnAge(int age) {
+<span class="fc bfc" id="L96" title="All 2 branches covered.">		if (age &lt;= 25) {</span>
+<span class="fc" id="L97">			return 0;</span>
+		} else {
+<span class="fc" id="L99">			return 1;</span>
+		}
+	}
+
+	public int calculateOutPutBasedOnHomeCity(String homeCity) {
+<span class="fc bfc" id="L104" title="All 2 branches covered.">		if (homeCity.substring(0, 1).equalsIgnoreCase(&quot;a&quot;)) {</span>
+<span class="fc" id="L105">			return 0;</span>
+<span class="fc bfc" id="L106" title="All 2 branches covered.">		}if (homeCity.substring(0, 1).equalsIgnoreCase(&quot;b&quot;)) {</span>
+<span class="fc" id="L107">			return 1;</span>
+<span class="fc bfc" id="L108" title="All 2 branches covered.">		}if (homeCity.substring(0, 1).equalsIgnoreCase(&quot;c&quot;)) {</span>
+<span class="fc" id="L109">			return 2;</span>
+<span class="fc bfc" id="L110" title="All 2 branches covered.">		}if (homeCity.substring(0, 1).equalsIgnoreCase(&quot;d&quot;)) {</span>
+<span class="fc" id="L111">			return 3;</span>
+<span class="fc bfc" id="L112" title="All 2 branches covered.">		}if (homeCity.substring(0, 1).equalsIgnoreCase(&quot;e&quot;)) {</span>
+<span class="fc" id="L113">			return 4;</span>
+<span class="fc bfc" id="L114" title="All 2 branches covered.">		}if (homeCity.substring(0, 1).equalsIgnoreCase(&quot;f&quot;)) {</span>
+<span class="fc" id="L115">			return 5;</span>
+<span class="fc bfc" id="L116" title="All 2 branches covered.">		}if (homeCity.substring(0, 1).equalsIgnoreCase(&quot;g&quot;)) {</span>
+<span class="fc" id="L117">			return 6;</span>
+<span class="fc bfc" id="L118" title="All 2 branches covered.">		}if (homeCity.substring(0, 1).equalsIgnoreCase(&quot;h&quot;)) {</span>
+<span class="fc" id="L119">			return 7;</span>
+<span class="fc bfc" id="L120" title="All 2 branches covered.">		}if (homeCity.substring(0, 1).equalsIgnoreCase(&quot;i&quot;)) {</span>
+<span class="fc" id="L121">			return 8;</span>
+<span class="fc bfc" id="L122" title="All 2 branches covered.">		}if (homeCity.substring(0, 1).equalsIgnoreCase(&quot;j&quot;)) {</span>
+<span class="fc" id="L123">			return 9;</span>
+		} else {
+<span class="fc" id="L125">			return 10;</span>
+		}
+	}
+	
+	public void buildFinalString(String firstName, String lastName, ResultFromInputs resultFromInputs, Conversor conversor) {
+<span class="fc" id="L130">		conversor.setNameConverterArrayValues();</span>
+<span class="fc" id="L131">		conversor.setAgeConverterArrayValues();</span>
+<span class="fc" id="L132">		conversor.setGenderConverterArrayValues();</span>
+<span class="fc" id="L133">		conversor.setCityConverterArrayValues();</span>
+
+<span class="fc" id="L135">		int gender = resultFromInputs.getResultForGender();</span>
+<span class="fc" id="L136">		int age = resultFromInputs.getResultForAge();</span>
+<span class="fc" id="L137">		int name = resultFromInputs.getResultForNameLenght();</span>
+<span class="fc" id="L138">		int homecity = resultFromInputs.getResultForHomeCity();</span>
+
+<span class="fc" id="L140">		System.out.println(firstName + &quot; &quot; + lastName + &quot;, your are a great &quot; + conversor.getGenderConverterArray().get(gender));</span>
+<span class="fc" id="L141">		System.out.println(conversor.getAgeConverterArray().get(age));</span>
+<span class="fc" id="L142">		System.out.println(conversor.getNameConverterArray().get(name)+ &quot; and combining that with the first letter of your homecity, i.e. &quot;+conversor.getCityConverterArray().get(homecity) );</span>
+<span class="fc" id="L143">		System.out.println(&quot;it seems that you are a dedicated student and will be a great Software Tester Engineer!&quot;);</span>
+
+<span class="fc" id="L145">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>

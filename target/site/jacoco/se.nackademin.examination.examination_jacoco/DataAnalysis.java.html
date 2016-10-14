@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="sv"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DataAnalysis.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">examination-jacoco</a> &gt; <a href="index.source.html" class="el_package">se.nackademin.examination.examination_jacoco</a> &gt; <span class="el_source">DataAnalysis.java</span></div><h1>DataAnalysis.java</h1><pre class="source lang-java linenums">package se.nackademin.examination.examination_jacoco;
+
+import java.util.ArrayList;
+
+<span class="fc" id="L5">public class DataAnalysis {</span>
+	
+	
+	public String buildFinalString(ArrayList&lt;String&gt; values){
+<span class="fc" id="L9">		String	resultString = &quot;#####################-- ANALYSIS OF THE INPUT DATA --#####################\n&quot;;	</span>
+<span class="fc" id="L10">		resultString += getResultStringNamesAndAge(values);</span>
+<span class="fc" id="L11">		resultString+=&quot;\n&quot;;</span>
+<span class="fc" id="L12">		resultString += getResulStringHomecityAndAge(values);</span>
+		
+<span class="fc" id="L14">		return resultString;</span>
+	}	
+	
+	
+	public String getResultStringNamesAndAge(ArrayList&lt;String&gt; values){
+<span class="fc" id="L19">		Game game = new Game();</span>
+<span class="fc bfc" id="L20" title="All 4 branches covered.">		if (values.get(1).length()&lt;=values.get(2).length() &amp;&amp; game.getAgeFromInputValues(values)&lt;=30){</span>
+<span class="fc" id="L21">			return &quot;The first name is smaller or equals in size to the last name and the participant is 30 or younger&quot;;</span>
+<span class="fc bfc" id="L22" title="All 4 branches covered.">		} if (values.get(1).length()&gt;values.get(2).length() &amp;&amp; game.getAgeFromInputValues(values)&gt;30){</span>
+<span class="fc" id="L23">			return &quot;The first name is greater or equals in size to the last name and the participant older than 30&quot;;</span>
+		}
+<span class="fc" id="L25">		return &quot;No analysis was performed&quot;;</span>
+	}
+	
+	public String getResulStringHomecityAndAge(ArrayList&lt;String&gt; values){
+<span class="fc" id="L29">		Game game = new Game();</span>
+<span class="fc bfc" id="L30" title="All 2 branches covered.">		if (values.get(5).length()&lt;5){</span>
+<span class="fc bfc" id="L31" title="All 2 branches covered.">			if (game.getAgeFromInputValues(values)&gt;=30){</span>
+<span class="fc" id="L32">				return &quot;The name of the homecity is small and the participant is 30 or older&quot;;</span>
+			}else{
+<span class="fc" id="L34">				return &quot;The name of the homecity is small and the participant is younger than 30&quot;;</span>
+			}
+		}else{
+			
+<span class="fc bfc" id="L38" title="All 2 branches covered.">			if (game.getAgeFromInputValues(values)&gt;=30){</span>
+<span class="fc" id="L39">				return &quot;The name of the homecity is big and the participant is 30 or older&quot;;</span>
+			}else{
+<span class="fc" id="L41">				return &quot;The name of the homecity is big and the participant is younger than 30&quot;;</span>
+			}
+			
+		}
+		
+		
+	}
+	
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>

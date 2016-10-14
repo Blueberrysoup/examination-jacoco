@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="sv"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Conversor.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">examination-jacoco</a> &gt; <a href="index.source.html" class="el_package">se.nackademin.examination.examination_jacoco</a> &gt; <span class="el_source">Conversor.java</span></div><h1>Conversor.java</h1><pre class="source lang-java linenums">package se.nackademin.examination.examination_jacoco;
+
+import java.util.ArrayList;
+
+public class Conversor {
+	
+<span class="fc" id="L7">	private ArrayList&lt;String&gt; nameConverterArray = new ArrayList&lt;String&gt;();</span>
+<span class="fc" id="L8">	private ArrayList&lt;String&gt; genderConverterArray = new ArrayList&lt;String&gt;();</span>
+<span class="fc" id="L9">	private ArrayList&lt;String&gt; ageConverterArray = new ArrayList&lt;String&gt;();</span>
+<span class="fc" id="L10">	private ArrayList&lt;String&gt; cityConverterArray = new ArrayList&lt;String&gt;();</span>
+	
+<span class="fc" id="L12">	public Conversor() {</span>
+
+<span class="fc" id="L14">	}</span>
+
+	
+	public void setGenderConverterArrayValues(){
+<span class="fc" id="L18">		this.genderConverterArray.add(&quot;man!&quot;);</span>
+<span class="fc" id="L19">		this.genderConverterArray.add(&quot;woman!&quot;);</span>
+<span class="fc" id="L20">		this.genderConverterArray.add(&quot;person!&quot;);		</span>
+<span class="fc" id="L21">	}</span>
+	
+	public void setAgeConverterArrayValues(){
+<span class="fc" id="L24">		this.ageConverterArray.add(&quot;You are young and talented! Things will come your way soon enough! &quot;);</span>
+<span class="fc" id="L25">		this.ageConverterArray.add(&quot;You are experienced and talented! Things will come your way soon enough!&quot;);		</span>
+<span class="fc" id="L26">	}	</span>
+	
+	public void setNameConverterArrayValues(){
+<span class="fc" id="L29">		this.nameConverterArray.add(&quot;Your first name is smaller than your last name&quot;);		</span>
+<span class="fc" id="L30">		this.nameConverterArray.add(&quot;Your last name is smaller than your first name&quot;);</span>
+<span class="fc" id="L31">		this.nameConverterArray.add(&quot;The lengths of your first name is your last name are the same&quot;);</span>
+<span class="fc" id="L32">	}</span>
+	
+	public void setCityConverterArrayValues(){
+<span class="fc" id="L35">		this.cityConverterArray.add(&quot; A, &quot;);</span>
+<span class="fc" id="L36">		this.cityConverterArray.add(&quot; B, &quot;);</span>
+<span class="fc" id="L37">		this.cityConverterArray.add(&quot; C, &quot;);</span>
+<span class="fc" id="L38">		this.cityConverterArray.add(&quot; D, &quot;);</span>
+<span class="fc" id="L39">		this.cityConverterArray.add(&quot; E, &quot;);</span>
+<span class="fc" id="L40">		this.cityConverterArray.add(&quot; F, &quot;);</span>
+<span class="fc" id="L41">		this.cityConverterArray.add(&quot; G, &quot;);</span>
+<span class="fc" id="L42">		this.cityConverterArray.add(&quot; H, &quot;);</span>
+<span class="fc" id="L43">		this.cityConverterArray.add(&quot; I, &quot;);</span>
+<span class="fc" id="L44">		this.cityConverterArray.add(&quot; J,&quot;);</span>
+<span class="fc" id="L45">		this.cityConverterArray.add(&quot; a letter that comes after J, &quot;);</span>
+		
+<span class="fc" id="L47">	}</span>
+
+	public ArrayList&lt;String&gt; getNameConverterArray() {
+<span class="fc" id="L50">		return nameConverterArray;</span>
+	}
+
+	public ArrayList&lt;String&gt; getGenderConverterArray() {
+<span class="fc" id="L54">		return genderConverterArray;</span>
+	}
+
+	public ArrayList&lt;String&gt; getAgeConverterArray() {
+<span class="fc" id="L58">		return ageConverterArray;</span>
+	}
+
+	public ArrayList&lt;String&gt; getCityConverterArray() {
+<span class="fc" id="L62">		return cityConverterArray;</span>
+	}
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>
