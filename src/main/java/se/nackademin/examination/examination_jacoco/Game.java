@@ -1,7 +1,7 @@
 package se.nackademin.examination.examination_jacoco;
 
 import java.util.ArrayList;
-import java.util.Scanner;
+//import java.util.Scanner;
 
 public class Game {
 
@@ -17,7 +17,7 @@ public class Game {
 	}
 	
 	
-	
+	/*
 	public ArrayList<String> collectInputData(){
 		ArrayList<String> resultArray = new ArrayList<String>();
 		Scanner scanner = new Scanner(System.in);
@@ -43,7 +43,7 @@ public class Game {
 		
 		scanner.close();
 		return resultArray;
-	}
+	}*/
 	
 	public char getGenderFromInputValues(ArrayList<String> arrayOfInputs){
 		char genderCharacter = arrayOfInputs.get(3).charAt(0);	
@@ -71,8 +71,6 @@ public class Game {
 		buildFinalString(firstName, lastName, this.resultFromInputs, conversor);
 
 	}
-
-	
 
 	public int calculateOutPutBasedOnNames(String firstName, String lastName) {
 		if (firstName.length() < lastName.length()) {
