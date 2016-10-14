@@ -41,6 +41,7 @@ public class Game {
 		inputValue = scanner.nextLine();
 		resultArray.add(inputValue);
 		
+		scanner.close();
 		return resultArray;
 	}
 	
